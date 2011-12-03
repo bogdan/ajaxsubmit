@@ -1,6 +1,10 @@
 describe "form-errors", ->
 
-  $form = $('form')
+  $form = null
+
+
+  beforeEach ->
+    $form = $('form').clone()
 
   afterEach ->
     $form.clearErrors()
