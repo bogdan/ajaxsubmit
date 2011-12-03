@@ -10,6 +10,6 @@ files.forEach(function(name){
 });
 
 var banner = fs.readFileSync("src/banner.js", "utf-8");
-fs.writeFile("ajax-submit.js", banner + CoffeeScript.compile(source), function(err) {
+fs.writeFile("ajaxsubmit.js", banner + CoffeeScript.compile(source), function(err) {
   if (err) throw err;
 });
