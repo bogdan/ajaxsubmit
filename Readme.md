@@ -1,8 +1,19 @@
 # AjaxSubmit
 
+This library is designed to make Ajaxy web forms as easy as regular web forms.
+
+## Dependencies
+
+* JQuery
+
+## Usage
+
+``` js
+$('#my_form').ajaxForm();
+```
 
 
-### Test suite
+## Test suite
 
 Open `spec.html` in your browser.
 
