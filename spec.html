@@ -6,15 +6,23 @@
     <title>AjaxSubmit</title>
 
     <link href="vendor/jasmine/jasmine.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+    <script src="vendor/jquery-1.7.1.js" type="text/javascript"></script>
     <script src="vendor/jasmine/jasmine.js" type="text/javascript"></script>
     <script src="vendor/jasmine/jasmine-html.js" type="text/javascript"></script>
     <script src="vendor/jasmine-ajax.js" type="text/javascript"></script>
+    <script src="vendor/jasmine-jquery.js" type="text/javascript"></script>
     <script src="vendor/coffee-script.js" type="text/javascript"></script>
-    <script src="spec/simple_spec.coffee" type="text/coffeescript"></script>
-    <script type="text/coffeescript">
-      do ->
-        alert("hz")
-    </script>
+
+
+    <script src="src/form-errors.js.coffee" type="text/coffeescript"></script>
+    <script src="src/ajax-submit.js.coffee" type="text/coffeescript"></script>
+
+
+    <script src="spec/javascripts/form-errors-spec.coffee" type="text/coffeescript"></script>
+
+
     <script>
       //<![CDATA[
       var jsApiReporter;
@@ -37,7 +45,8 @@
           if (currentWindowOnload) {
             currentWindowOnload();
           }
-          execJasmine();
+          // Wait for coffee-scripts async loading
+          setTimeout(execJasmine, "1000"); 
         };
 
         function execJasmine() {
@@ -50,6 +59,13 @@
   </head>
   <body>
     <div id='jasmine_content'></div>
+
+    <form id="test_form" action="/">
+      <div validate="email user">
+        <label for="email">Email:</label>
+        <input type="text" name="email"/>
+      </div>
+    </form>
   </body>
 </html>
 
