@@ -24,11 +24,11 @@
         )
 
   applyValidation = (form, field, message) ->
-    validation_div = form.find("[#{$.errors.attribute}~='#{field}']")
-    if validation_div.size() == 0
-      validation_div = $("<div #{$.errors.attribute}='#{field}'></div>")
-      form.prepend(validation_div)
-    applyValidationMessage(validation_div, message)
+    div = form.find("[#{$.errors.attribute}~='#{field}']")
+    if div.size() == 0
+      div = $("<div #{$.errors.attribute}='#{field}'></div>")
+      form.prepend(div)
+    applyValidationMessage(div, message)
 
 
   $.fn.applyErrors = (errors) ->

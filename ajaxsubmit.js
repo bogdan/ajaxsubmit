@@ -30,13 +30,13 @@
       }
     };
     applyValidation = function(form, field, message) {
-      var validation_div;
-      validation_div = form.find("[" + $.errors.attribute + "~='" + field + "']");
-      if (validation_div.size() === 0) {
-        validation_div = $("<div " + $.errors.attribute + "='" + field + "'></div>");
-        form.prepend(validation_div);
+      var div;
+      div = form.find("[" + $.errors.attribute + "~='" + field + "']");
+      if (div.size() === 0) {
+        div = $("<div " + $.errors.attribute + "='" + field + "'></div>");
+        form.prepend(div);
       }
-      return applyValidationMessage(validation_div, message);
+      return applyValidationMessage(div, message);
     };
     $.fn.applyErrors = function(errors) {
       var form;
