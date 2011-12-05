@@ -22,8 +22,8 @@
         ajaxFormErrorHandler $form
 
   ajaxFormSuccessHandler = ($form, data, callback, error_callback) ->
-    if $.isEmptyObject(data.errors)
-      callback.call $form, data  if typeof (callback) == "function"
+    if $.isEmptyObject(data && data.errors)
+      callback.call $form[0], data  if typeof (callback) == "function"
     else
       error_callback.call $form, data  if typeof (error_callback) == "function"
       $form.applyErrors data.errors
