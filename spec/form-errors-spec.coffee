@@ -1,6 +1,7 @@
 describe "form-errors", ->
 
   $form = null
+  defaultConfig = $.errors
 
 
   beforeEach ->
@@ -8,6 +9,7 @@ describe "form-errors", ->
 
   afterEach ->
     $form.clearErrors()
+    $.errors = defaultConfig
 
   describe "after apply errors", ->
     beforeEach ->
@@ -17,7 +19,7 @@ describe "form-errors", ->
       expect($form.find(".validation-message").html()).toEqual("is invalid")
 
     it "should add activation class", ->
-      expect($form.find("[validate~=email]")).toHaveClass($.errors.activation_class)
+      expect($form.find("[validate~=email]")).toHaveClass($.errors.activationClass)
 
     it "should have validation dom", ->
       expect($form.find('.validation')).not.toBeEmpty()

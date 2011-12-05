@@ -5,20 +5,31 @@
 
   $.errors =
     attribute: "validate"
-    activation_class: "error"
-    message_class: "validation-message"
+    activationClass: "error"
+    messageClass: "validation-message"
+    format: "<div class='validation'><div class='validation-message'></div><div class='arrow'></div></div>"
 
-    apply_validation_error: (div, message) ->
-      unless div.hasClass($.errors.activation_class)
-        div.addClass $.errors.activation_class
-        message_div = div.find(".#{$.errors.message_class}")
-        if message_div.size() == 0
-          div.append($.errors.format(message))
-        else
-          message_div.html(message)
+  applyValidationMessage = (div, message) ->
+    unless div.hasClass($.errors.activationClass)
+      div.addClass $.errors.activationClass
+      message_div = div.find(".#{$.errors.messageClass}")
+      if message_div.size() == 0
+        div.append($.errors.format)
+      message_div = div.find(".#{$.errors.messageClass}")
+      if message_div.size() > 0
+        message_div.html(message)
+      else
+        throw new Error(
+          "configuration error: $.errors.format must have elment with class #{$.errors.messageClass}"
+        )
 
-    format: (message) ->
-      "<div class='validation'><div class='#{$.errors.message_class}'>#{message}</div><div class='arrow'></div></div>"
+  applyValidation = (form, field, message) ->
+    validation_div = form.find("[#{$.errors.attribute}~='#{field}']")
+    if validation_div.size() == 0
+      validation_div = $("<div #{$.errors.attribute}='#{field}'></div>")
+      form.prepend(validation_div)
+    applyValidationMessage(validation_div, message)
+
 
   $.fn.applyErrors = (errors) ->
     form = $(@)
@@ -29,14 +40,10 @@
       field = error[0]
       message = error[1]
       message = message[0] if $.isArray(message)
-      validation_div = form.find("[#{$.errors.attribute}~='#{field}']")
-      if validation_div.size() == 0
-        validation_div = $("<div #{$.errors.attribute}='#{field}'></div>")
-        form.prepend(validation_div)
-      $.errors.apply_validation_error(validation_div, message)
+      applyValidation(form, field, message)
 
   $.fn.clearErrors = ->
     validators = $(@).find("[#{$.errors.attribute}]")
-    validators.removeClass $.errors.activation_class
+    validators.removeClass $.errors.activationClass
 
 )(jQuery)
