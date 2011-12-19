@@ -10,14 +10,14 @@
         position: relative;
       }
       /* line 60, /home/bogdan/makabu/railsware/mailtrap/app/assets/stylesheets/base/group-forms.css.sass */
-      [validate].error input.text {
+      [validate].error input[type=text] {
         background-color: #ffe3e3;
         border-color: #e05c5c;
       }
       /* line 63, /home/bogdan/makabu/railsware/mailtrap/app/assets/stylesheets/base/group-forms.css.sass */
-      [validate].error .validation {
+      [validate] .validation {
         opacity: 1;
-        visibility: visible;
+        display: none;
       }
       /* line 67, /home/bogdan/makabu/railsware/mailtrap/app/assets/stylesheets/base/group-forms.css.sass */
       [validate].error:hover .validation {
@@ -29,11 +29,15 @@
         line-height: 16px;
         max-height: 40px;
         overflow: visible;
+        display: block;
         padding: 7px 10px;
         position: absolute;
         text-indent: 0;
         width: 238px;
         z-index: 10;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
       }
       /* line 81, /home/bogdan/makabu/railsware/mailtrap/app/assets/stylesheets/base/group-forms.css.sass */
       [validate].error:hover .validation .arrow {
@@ -44,7 +48,7 @@
         width: 7px;
       }
       /* line 88, /home/bogdan/makabu/railsware/mailtrap/app/assets/stylesheets/base/group-forms.css.sass */
-      [validate].text {
+      [validate].input[type=text] {
         background: white;
         border: 1px solid #cccccc;
         font-size: 12px;
@@ -123,7 +127,7 @@
 
   </head>
   <body>
-    <form id="test_form" action="/">
+    <form style="padding-top: 200px" id="test_form" action="/">
       <div validate="email user">
         <label for="email">Email:</label>
         <input type="text" name="email"/>
