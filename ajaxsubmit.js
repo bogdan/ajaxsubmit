@@ -93,7 +93,11 @@
     };
     ajaxFormSuccessHandler = function($form, data, callback, error_callback) {
       if ($.isEmptyObject(data && data.errors)) {
-        if (typeof callback === "function") return callback.call($form[0], data);
+        if (typeof callback === "function") {
+          return callback.call($form[0], data);
+        } else if (data.redirect) {
+          return window.location = data.redirect;
+        }
       } else {
         if (typeof error_callback === "function") error_callback.call($form, data);
         return $form.applyErrors(data.errors);

@@ -23,7 +23,11 @@
 
   ajaxFormSuccessHandler = ($form, data, callback, error_callback) ->
     if $.isEmptyObject(data && data.errors)
-      callback.call $form[0], data  if typeof (callback) == "function"
+      if typeof (callback) == "function"
+        callback.call $form[0], data
+      else if data.redirect
+        window.location = data.redirect
+
     else
       error_callback.call $form, data  if typeof (error_callback) == "function"
       $form.applyErrors data.errors
