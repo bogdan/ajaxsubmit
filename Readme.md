@@ -80,8 +80,9 @@ Errors format example:
 
 ### Form submit API
 
-`$(...).ajaxSubmit(options = {})` - submits the form via AJAX
-`$(...).ajaxForm(options = {})` - rebinds 'submit' event on the form: prevents default and assign ajax submit instead
+`$(...).ajaxSubmit(options = {})` - submits the form via AJAX.
+
+`$(...).ajaxForm(options = {})` - rebinds 'submit' event on the form: prevents default and assign ajax submit instead.
 
 Options:
 
@@ -91,8 +92,9 @@ Options:
 
 ### Errors assignment API
 
-`$(...).applyErrors(errors)` - assigns errors to the form
-`$(...).clearErrors(errors)` - clears form from errors
+`$(...).applyErrors(errors)` - assigns errors to the form.
+
+`$(...).clearErrors(errors)` - clears form from errors.
 
 Configuration can be done via `$.errors` hash:
 
