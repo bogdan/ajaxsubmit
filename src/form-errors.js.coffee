@@ -6,8 +6,8 @@
   $.errors =
     attribute: "validate"
     activationClass: "error"
-    messageClass: "validation-message"
     format: "<div class='validation'><div class='validation-message'></div><div class='arrow'></div></div>"
+    messageClass: "validation-message"
 
   applyValidationMessage = (div, message) ->
     unless div.hasClass($.errors.activationClass)

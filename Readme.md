@@ -22,28 +22,30 @@ Errors assignment to the form is done via HTML5 custom attributes:
 ``` html
 <form action="/register" id="new_user" method="post">
   <div class="field" validate="email">
-  	<label>Email</label><br />
+  	<label>Email</label>
     <input name="user[email]" type="text" />
   </div>
   <div class="field" validate="password">
-    <label>Password</label><br />
+    <label>Password</label>
     <input id="user_password" name="user[password]" type="password" />
   </div>
   <div class="field" validate="password_confirmation">
-    <label>Password confirmation</label><br />
+    <label>Password confirmation</label>
     <input name="user[password_confirmation]" type="password" />
   </div>
   <input name="commit" type="submit" value="Register" />
 </form>
 ```
 
+You can specify multiple errors to be assigned in the same place with `validate="company company_id"`
+
 
 ### Change the submit behavior
 
-And JavaScript function:
+With JavaScript function:
 
 ``` js
-$('form').ajaxForm();
+$('#new_user').ajaxForm();
 ```
 
 ### Rework backend
@@ -74,6 +76,35 @@ Errors format example:
 ```
 
 
+## API
+
+### Form submit API
+
+`$(...).ajaxSubmit(options = {})` - submits the form via AJAX
+`$(...).ajaxForm(options = {})` - rebinds 'submit' event on the form: prevents default and assign ajax submit instead
+
+Options:
+
+* `success` - callback to be executed after form will be successfully submitted
+* `redirect` - specify the URL where the user should be redirected after form submit(makes sense only when `success` option is not used)
+* `error` - callback to be executed when the form was not submitted successfully
+
+### Errors assignment API
+
+`$(...).applyErrors(errors)` - assigns errors to the form
+`$(...).clearErrors(errors)` - clears form from errors
+
+Configuration can be done via `$.errors` hash:
+
+* `$.errors.attribute` - custom attribute to refer error names. 
+  * Default: `validate`.
+* `$.errors.activationClass` - CSS class name to be assigned when error get active. 
+  * Default: `error`.
+* `$.errors.format` - A peace of html that is rendered for each error. 
+  * Default: `<div class='validation'><div class='validation-message'></div><div class='arrow'></div></div>`.
+* `$.errors.messageClass` - The place in error form where the message should be assigned. 
+  * Default: `validation-message`.
+  * NOTE: `$.errors.format` should always contain `$.errors.messageClass`
 
 ## Test suite
 
