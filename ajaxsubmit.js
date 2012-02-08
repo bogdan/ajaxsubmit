@@ -5,22 +5,26 @@
 * Copyright 2011, Bogdan Gusiev
 * Released under the MIT License
 */
-
+(function() {
   (function($) {
     var applyValidation, applyValidationMessage;
-    if (!($().jquery >= '1.6')) throw 'ajaxsubmit.js require jQuery >= 1.6.0';
+    if (!($().jquery >= '1.6')) {
+      throw 'ajaxsubmit.js require jQuery >= 1.6.0';
+    }
     $.errors = {
       attribute: "validate",
       activationClass: "error",
-      messageClass: "validation-message",
-      format: "<div class='validation'><div class='validation-message'></div><div class='arrow'></div></div>"
+      format: "<div class='validation'><div class='validation-message'></div></div>",
+      messageClass: "validation-message"
     };
     applyValidationMessage = function(div, message) {
       var message_div;
       if (!div.hasClass($.errors.activationClass)) {
         div.addClass($.errors.activationClass);
         message_div = div.find("." + $.errors.messageClass);
-        if (message_div.size() === 0) div.append($.errors.format);
+        if (message_div.size() === 0) {
+          div.append($.errors.format);
+        }
         message_div = div.find("." + $.errors.messageClass);
         if (message_div.size() > 0) {
           return message_div.html(message);
@@ -51,7 +55,9 @@
         var field, message;
         field = error[0];
         message = error[1];
-        if ($.isArray(message)) message = message[0];
+        if ($.isArray(message)) {
+          message = message[0];
+        }
         return applyValidation(form, field, message);
       });
     };
@@ -61,15 +67,20 @@
       return validators.removeClass($.errors.activationClass);
     };
   })(jQuery);
-
+}).call(this);
+(function() {
   (function($) {
     var ajaxFormErrorHandler, ajaxFormSuccessHandler;
     $.fn.ajaxSubmit = function(options) {
       var $form, callback, error_callback, method, url;
-      if (options == null) options = {};
+      if (options == null) {
+        options = {};
+      }
       $form = $(this);
       $form.clearErrors();
-      if (typeof options === "function") options.success = options;
+      if (typeof options === "function") {
+        options.success = options;
+      }
       if (options.redirect && !options.success) {
         options.success = function() {
           return window.location = options.redirect;
@@ -99,16 +110,21 @@
           return window.location = data.redirect;
         }
       } else {
-        if (typeof error_callback === "function") error_callback.call($form, data);
+        if (typeof error_callback === "function") {
+          error_callback.call($form, data);
+        }
         return $form.applyErrors(data.errors);
       }
     };
     ajaxFormErrorHandler = function($form) {};
     return $.fn.ajaxForm = function(options) {
-      if (options == null) options = {};
+      if (options == null) {
+        options = {};
+      }
       return $(this).bind("submit", function(event) {
         event.preventDefault();
         return $(this).ajaxSubmit(options);
       });
     };
   })(jQuery);
+}).call(this);
