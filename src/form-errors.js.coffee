@@ -6,7 +6,7 @@
   $.errors =
     attribute: "validate"
     activationClass: "error"
-    format: "<div class='validation'><div class='validation-message'></div><div class='arrow'></div></div>"
+    format: "<div class='validation'><div class='validation-message'></div></div>"
     messageClass: "validation-message"
 
   applyValidationMessage = (div, message) ->
