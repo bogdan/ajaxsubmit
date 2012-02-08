@@ -1,6 +1,8 @@
 # AjaxSubmit
 
-This library is designed to make Ajaxy web forms as easy as regular web forms.
+This library is designed to submit and validate forms via Ajax
+
+[LIVE Demo available](https://ajaxsubmit.datagrid.com)
 
 ## Dependencies
 
