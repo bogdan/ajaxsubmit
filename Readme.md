@@ -72,7 +72,7 @@ Errors format example:
 // As Hash
 {email: "Email is invalid", password_confirmation: "Confirmation should match password"}
 // or as Array
-{["email", "Email is invalid"], ["password_confirmation", "Confirmation should match password"]}
+[["email", "Email is invalid"], ["password_confirmation", "Confirmation should match password"]]
 ```
 
 
