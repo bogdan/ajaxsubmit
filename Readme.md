@@ -1,13 +1,14 @@
 # AjaxSubmit
 
-This library is designed to make Ajaxy web forms as easy as regular web forms.
+This library is designed to submit and validate forms via Ajax
+
+[LIVE Demo available](https://ajaxsubmit.datagrid.com)
 
 ## Dependencies
 
 * JQuery
 
 ## Usage
-
 
 Three step to convert any web form into ajax form:
 
@@ -103,7 +104,7 @@ Configuration can be done via `$.errors` hash:
 * `$.errors.activationClass` - CSS class name to be assigned when error get active. 
   * Default: `error`.
 * `$.errors.format` - A peace of html that is rendered for each error. 
-  * Default: `<div class='validation'><div class='validation-message'></div><div class='arrow'></div></div>`.
+  * Default: `<div class='validation'><div class='validation-message'></div></div>`.
 * `$.errors.messageClass` - The place in error form where the message should be assigned. 
   * Default: `validation-message`.
   * NOTE: `$.errors.format` should always contain `$.errors.messageClass`
@@ -119,3 +120,11 @@ In order to launch test suite in Google Chrome, you need to open it with:
 ``` sh
 chrome --allow-file-access-from-files
 ```
+
+## Self-Promotion
+
+Like ajaxsubmit?
+
+Follow the [repository on GitHub](https://github.com/bogdan/ajaxsubmit).
+
+Read [author blog](http://gusiev.com).
