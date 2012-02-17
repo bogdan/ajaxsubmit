@@ -4,6 +4,8 @@ This library is designed to submit and validate forms via Ajax
 
 [LIVE Demo available](https://ajaxsubmit.datagrid.com)
 
+Originally extracted from [Mailtrap Web Service](http://mailtrap.io)
+
 ## Dependencies
 
 * JQuery
@@ -71,9 +73,13 @@ Errors format example:
 
 ``` js
 // As Hash
-{email: "Email is invalid", password_confirmation: "Confirmation should match password"}
+{email: "Email is invalid", password: "Password is too short"}
 // or as Array
-[["email", "Email is invalid"], ["password_confirmation", "Confirmation should match password"]]
+[["email", "Email is invalid"], ["password", "Password is too short"]]
+
+// Multiple errors can be on the same field. 
+// In this case first will be picked
+{email: ["Email is blank", "Email is invalid"]}
 ```
 
 
@@ -108,6 +114,7 @@ Configuration can be done via `$.errors` hash:
 * `$.errors.messageClass` - The place in error form where the message should be assigned. 
   * Default: `validation-message`.
   * NOTE: `$.errors.format` should always contain `$.errors.messageClass`
+
 
 ## Test suite
 
