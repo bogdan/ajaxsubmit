@@ -10,6 +10,12 @@ Originally extracted from [Mailtrap Web Service](http://mailtrap.io)
 
 * JQuery
 
+## Download
+
+[Ajaxsubmit latest version](https://raw.github.com/bogdan/ajaxsubmit/master/ajaxsubmit.js)
+
+[Browse release history](https://github.com/bogdan/ajaxsubmit/tree/master/builds)
+
 ## Usage
 
 Three step to convert any web form into ajax form:
