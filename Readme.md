@@ -24,26 +24,29 @@ Three step to convert any web form into ajax form:
 * Change form submit behavior
 * Rework backend to return json
 
-### validate attributes
+### Validate attributes
 
 Errors assignment to the form is done via HTML5 custom attributes:
 
-``` html
-<form action="/register" id="new_user" method="post">
-  <div class="field" validate="email">
-  	<label>Email</label>
-    <input name="user[email]" type="text" />
-  </div>
-  <div class="field" validate="password">
-    <label>Password</label>
-    <input id="user_password" name="user[password]" type="password" />
-  </div>
-  <div class="field" validate="password_confirmation">
-    <label>Password confirmation</label>
-    <input name="user[password_confirmation]" type="password" />
-  </div>
-  <input name="commit" type="submit" value="Register" />
-</form>
+``` diff
+ <form action="/register" id="new_user" method="post">
+-  <div class="field">
++  <div class="field" validate="email">
+   	<label>Email</label>
+     <input name="user[email]" type="text" />
+   </div>
+-  <div class="field">
++  <div class="field" validate="password">
+     <label>Password</label>
+     <input id="user_password" name="user[password]" type="password" />
+   </div>
+-  <div class="field">
++  <div class="field" validate="password_confirmation">
+     <label>Password confirmation</label>
+     <input name="user[password_confirmation]" type="password" />
+   </div>
+   <input name="commit" type="submit" value="Register" />
+ </form>
 ```
 
 You can specify multiple errors to be assigned in the same place with `validate="company company_id"`
