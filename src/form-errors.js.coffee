@@ -5,8 +5,8 @@
 
   $.errors =
     attribute: "validate"
-    activationClass: "error"
-    format: "<div class='validation'><div class='validation-message'></div></div>"
+    activationClass: "validation-active"
+    format: "<div class='validation-block'><div class='validation-message'></div></div>"
     messageClass: "validation-message"
 
   applyValidationMessage = (div, message) ->
@@ -44,6 +44,7 @@
 
   $.fn.clearErrors = ->
     validators = $(@).find("[#{$.errors.attribute}]")
+    validators.find(".#{$.errors.messageClass}").html("")
     validators.removeClass $.errors.activationClass
 
 )(jQuery)
