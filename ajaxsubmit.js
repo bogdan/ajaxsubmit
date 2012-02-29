@@ -8,9 +8,6 @@
 (function() {
   (function($) {
     var applyValidation, applyValidationMessage;
-    if (!($().jquery >= '1.6')) {
-      throw 'ajaxsubmit.js require jQuery >= 1.6.0';
-    }
     $.errors = {
       attribute: "validate",
       activationClass: "validation-active",
@@ -43,12 +40,14 @@
       return applyValidationMessage(div, message);
     };
     $.fn.applyErrors = function(errors) {
-      var form;
+      var form, old_errors;
       form = $(this);
       $(this).clearErrors();
       if ($.type(errors) === "object") {
-        errors = $.map(errors, function(v, k) {
-          return [[k, v]];
+        old_errors = errors;
+        errors = [];
+        $.each(old_errors, function(k, v) {
+          return errors.push([k, v]);
         });
       }
       return $(errors).each(function(key, error) {
