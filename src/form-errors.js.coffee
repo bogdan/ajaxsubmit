@@ -1,8 +1,5 @@
 (($) ->
 
-  unless $().jquery >= '1.6'
-    throw 'ajaxsubmit.js require jQuery >= 1.6.0'
-
   $.errors =
     attribute: "validate"
     activationClass: "validation-active"
@@ -35,7 +32,11 @@
     form = $(@)
     $(@).clearErrors()
     if $.type(errors) == "object"
-      errors = $.map errors, (v,k) -> [[k,v]]
+      old_errors = errors
+      errors = []
+      $.each old_errors, (k,v) ->
+        errors.push [k,v]
+       
     $(errors).each (key, error) ->
       field = error[0]
       message = error[1]
