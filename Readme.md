@@ -2,7 +2,7 @@
 
 This library is designed to submit and validate forms via Ajax
 
-[LIVE Demo available](https://ajaxsubmit.datagrid.com)
+[LIVE Demo available](http://ajaxsubmit.heroku.com)
 
 Originally extracted from [Mailtrap Web Service](http://mailtrap.io)
 
@@ -102,9 +102,10 @@ Errors format example:
 
 Options:
 
-* `success` - callback to be executed after form will be successfully submitted
-* `redirect` - specify the URL where the user should be redirected after form submit(makes sense only when `success` option is not used)
+* `success` - callback to be executed after form will be successfully submitted.
+  * If not specified, user will be redirected by the redirect key received from backend after successful submit.
 * `error` - callback to be executed when the form was not submitted successfully
+* `redirect` - specify the URL where the user should be redirected after form submit(makes sense only when `success` option is not used)
 
 ### Errors assignment API
 
@@ -114,12 +115,12 @@ Options:
 
 Configuration can be done via `$.errors` hash:
 
-* `$.errors.attribute` - custom attribute to refer error names. 
+* `$.errors.attribute` - custom attribute HTML5 to refer error names. 
   * Default: `validate`.
 * `$.errors.activationClass` - CSS class name to be assigned when error get active. 
-  * Default: `error`.
+  * Default: `validation-active`.
 * `$.errors.format` - A peace of html that is rendered for each error. 
-  * Default: `<div class='validation'><div class='validation-message'></div></div>`.
+  * Default: `<div class='validation-block'><div class='validation-message'></div></div>`.
 * `$.errors.messageClass` - The place in error form where the message should be assigned. 
   * Default: `validation-message`.
   * NOTE: `$.errors.format` should always contain `$.errors.messageClass`
