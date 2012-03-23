@@ -1,0 +1,36 @@
+{
+    "name": "ajaxsubmit",
+    "version": "0.0.1",
+    "title": "Ajaxsubmit",
+    "author": {
+        "name": "Bogdan Gusiev",
+        "url": "https://github.com/bogdan"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "MIT-LICENSE.txt"
+        },
+    ],
+    "dependencies": {
+        "jquery": "1"
+    },
+    "description": "The main purpose of this plugin is to make submit and validate form via ajax as easy as via regular request",
+    "keywords": [
+        "ajax",
+        "submit",
+        "form",
+        "errors",
+        "validation"
+    ],
+    "homepage": "https://github.com/bogdan/ajaxsubmit",
+    "maintainers": [
+        {
+            "name": "Bogdan Gusiev",
+            "url": "https://github.com/bogdan"
+        }
+    ],
+    "files": [
+        "ajaxsubmit.js"
+    ]
+}
