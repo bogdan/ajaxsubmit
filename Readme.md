@@ -69,11 +69,11 @@ Here is example with pseudocode:
 
 ``` js
 post("/register", function() {
-  user = new User(params.user)
+  var user = new User(this.params.user)
   if (user.save()) {
-    return json({redirect: "/"});
+    return this.json({redirect: "/"});
   } else {
-    return json({errors: user.errors()})
+    return this.json({errors: user.errors()})
   }
 });
 ```
