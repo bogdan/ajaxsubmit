@@ -69,7 +69,7 @@ Here is example with pseudocode:
 
 ``` js
 post("/register", function() {
-  user = new User(params["user"])
+  user = new User(params.user)
   if (user.save()) {
     return json({redirect: "/"});
   } else {
