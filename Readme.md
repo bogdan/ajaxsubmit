@@ -123,7 +123,7 @@ Configuration can be done via `$.errors` hash:
   * Default: `<div class='validation-block'><div class='validation-message'></div></div>`.
 * `$.errors.messageClass` - The place in error form where the message should be assigned. 
   * Default: `validation-message`.
-  * NOTE: `$.errors.format` should always contain `$.errors.messageClass`
+  * NOTE: `$.errors.format` should always contain tag with `$.errors.messageClass`
 
 
 ## Test suite
