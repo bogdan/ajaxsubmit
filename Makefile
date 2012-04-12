@@ -1,5 +1,5 @@
 SRC = $(shell find src -name "*" -type f)
-VERSION="0.0.1"
+VERSION="0.1.0"
 
 all: ajaxsubmit.js
 
