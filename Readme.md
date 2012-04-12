@@ -108,6 +108,7 @@ Options:
 * `redirect` - specify the URL where the user should be redirected after form submit(makes sense only when `success` option is not used)
 * `url` - specify the url to submit a form. Defaults to url in `form[action]` attribute.
 * `data` - extra data to submit along with form data. Default: none
+* `type` - jQuery ajax request type(get, post, put or delete). Defaults to `form[method]` attribute
 
 ### Errors assignment API
 

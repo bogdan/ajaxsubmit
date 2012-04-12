@@ -10,7 +10,9 @@ describe "ajax-submit", ->
 
   describe "after submit", ->
     beforeEach ->
-      spyOnUrl( '/': {errors: {email: "is invalid"}})
+      spyOnUrl '/': (params) ->
+        expect(params.data).toMatch("email")
+        {errors: {email: "is invalid"}}
       $form.ajaxSubmit()
 
     it "should apply error message", ->
@@ -27,12 +29,22 @@ describe "ajax-submit", ->
   describe "after submit with extra data", ->
     beforeEach ->
       spyOnUrl '/': (params) ->
-        if params.data.indexOf("abcd") >= 0 and params.data.indexOf("email") >= 0
-          {errors: {email: "is blank"}}
-        else
-          {}
+        expect(params.data).toMatch("abcd")
+        expect(params.data).toMatch("email")
+        {errors: {email: "is blank"}}
 
       $form.ajaxSubmit(data: {identifier: "abcd"})
+
+    it "should apply error message", ->
+      expect($form.find(".validation-message").html()).toEqual("is blank")
+
+  describe "after submit with custom type", ->
+    beforeEach ->
+      spyOnUrl '/': (params) ->
+        expect(params.type).toEqual("put")
+        {errors: {email: "is blank"}}
+
+      $form.ajaxSubmit(type: "put")
 
     it "should apply error message", ->
       expect($form.find(".validation-message").html()).toEqual("is blank")

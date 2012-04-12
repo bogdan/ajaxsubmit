@@ -9,13 +9,13 @@
         window.location = options.redirect
     callback = options.success
     error_callback = options.error
-    method = $form.attr("method") or "GET"
+    method = $form.attr("method") or "get"
     url = $form.attr("action")
     data = $form.serialize()
     unless jQuery.isEmptyObject(options.data)
       data = data + "&" + $.param(options.data)
     $.ajax
-      type: method.toUpperCase()
+      type: options.type || method
       url: options.url || url
       data: data
       success: (data) ->
