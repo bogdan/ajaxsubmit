@@ -106,6 +106,7 @@ Options:
   * If not specified, user will be redirected by the redirect key received from backend after successful submit.
 * `error` - callback to be executed when the form was not submitted successfully
 * `redirect` - specify the URL where the user should be redirected after form submit(makes sense only when `success` option is not used)
+* `url` - specify the url to submit a form. Default to url in `form[action]` attribute.
 
 ### Errors assignment API
 
@@ -135,7 +136,7 @@ Google Chrome doesn't allow ajax requests to local files by default.
 In order to launch test suite in Google Chrome, you need to open it with:
 
 ``` sh
-chrome --allow-file-access-from-files
+chrome --allow-file-access-from-files spec.html
 ```
 
 ## Self-Promotion

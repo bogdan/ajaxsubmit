@@ -13,7 +13,7 @@
     url = $form.attr("action")
     $.ajax
       type: method.toUpperCase()
-      url: url
+      url: options.url || url
       data: $form.serialize()
       success: (data) ->
         ajaxFormSuccessHandler $form, data, callback, error_callback
