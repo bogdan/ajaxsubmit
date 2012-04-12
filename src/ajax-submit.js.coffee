@@ -11,10 +11,13 @@
     error_callback = options.error
     method = $form.attr("method") or "GET"
     url = $form.attr("action")
+    data = $form.serialize()
+    unless jQuery.isEmptyObject(options.data)
+      data = data + "&" + $.param(options.data)
     $.ajax
       type: method.toUpperCase()
       url: options.url || url
-      data: $form.serialize()
+      data: data
       success: (data) ->
         ajaxFormSuccessHandler $form, data, callback, error_callback
       

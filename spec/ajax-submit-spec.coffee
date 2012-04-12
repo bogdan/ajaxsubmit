@@ -23,3 +23,16 @@ describe "ajax-submit", ->
 
     it "should apply error message", ->
       expect($form.find(".validation-message").html()).toEqual("is blank")
+
+  describe "after submit with extra data", ->
+    beforeEach ->
+      spyOnUrl '/': (params) ->
+        if params.data.indexOf("abcd") >= 0 and params.data.indexOf("email") >= 0
+          {errors: {email: "is blank"}}
+        else
+          {}
+
+      $form.ajaxSubmit(data: {identifier: "abcd"})
+
+    it "should apply error message", ->
+      expect($form.find(".validation-message").html()).toEqual("is blank")
