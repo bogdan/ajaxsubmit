@@ -1,5 +1,5 @@
 
-VERSION="0.1.0"
+VERSION="0.1.1"
 
 all:
 	cat src/banner.js | sed s/VERSION/$(VERSION)/ > ajaxsubmit.js

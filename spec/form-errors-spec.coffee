@@ -60,3 +60,13 @@ describe "form-errors", ->
     it "should pick first", ->
       expect($form.find(".validation-message").html()).toEqual("is blank")
 
+  describe "after apply on field that is not presence in any validate attribute", ->
+    beforeEach ->
+      $form.applyErrors([["terms", "is not accepted"]])
+
+    it "should add error to top of the form with notice", ->
+      expect($form.find("[validate~='terms']").html()).toEqual(
+        "Unassigned error: Add validate=\"terms\" attribute somewhere in a form." +
+        "<div class=\"validation-block\"><div class=\"validation-message\">is not accepted</div></div>"
+      )
+

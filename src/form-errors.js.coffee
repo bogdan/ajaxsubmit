@@ -23,7 +23,10 @@
   applyValidation = (form, field, message) ->
     div = form.find("[#{$.errors.attribute}~='#{field}']")
     if div.size() == 0
-      div = $("<div #{$.errors.attribute}='#{field}'></div>")
+      div = $(
+        "<div #{$.errors.attribute}='#{field}'>" +
+          "Unassigned error: Add validate=\"#{field}\" attribute somewhere in a form.</div>"
+      )
       form.prepend(div)
     applyValidationMessage(div, message)
 
