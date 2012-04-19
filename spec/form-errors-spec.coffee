@@ -70,3 +70,9 @@ describe "form-errors", ->
         "<div class=\"validation-block\"><div class=\"validation-message\">is not accepted</div></div>"
       )
 
+  describe "after apply on filed with dot in name", ->
+    beforeEach ->
+      $form.applyErrors([["user.email", "is blank"]])
+    it "should add error on field", ->
+      expect($form.find('.validation-message').html()).toEqual("is blank")
+
