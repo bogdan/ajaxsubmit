@@ -134,18 +134,18 @@ Configuration can be done via `$.errors` hash:
 You can have different DOM to display errors even in the same form.
 For example:
 
-``` html
-<div class="field" validate="name">
-  <label for="name">Name</label>
-  <input id="name" name="name" type="text">
-  <div class="validation-message leftarrow validation-block"></div>
-</div>
-<div class="field" validate="gender">
-  <label>Gender</label>
-  <input id="gender_male" name="gender" type="radio" value="MALE"><label for="gender_male">Male</label>
-  <input id="gender_female" name="gender" type="radio" value="FEMALE"><label for="gender_female">Female</label>
-  <div class="validation-message toparrow validation-block"></div>
-</div>
+``` diff
+ <div class="field" validate="name">
+   <label for="name">Name</label>
+   <input id="name" name="name" type="text">
++  <div class="validation-message leftarrow validation-block"></div>
+ </div>
+ <div class="field" validate="gender">
+   <label>Gender</label>
+   <input id="gender_male" name="gender" type="radio" value="MALE"><label for="gender_male">Male</label>
+   <input id="gender_female" name="gender" type="radio" value="FEMALE"><label for="gender_female">Female</label>
++  <div class="validation-message toparrow validation-block"></div>
+ </div>
 ```
 
 Now ajaxsubmit will simply insert error inside `.validation-message` without applying it's default format.
