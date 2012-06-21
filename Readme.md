@@ -149,9 +149,10 @@ For example:
 ```
 
 Now ajaxsubmit will simply insert error inside `.validation-message` without applying it's default format.
+[Form with different errors layout DEMO](http://ajaxsubmit.heroku.com/subscriptions)
+
 Make sure you include something like this in your CSS, so that validation block doesn't appear when inactive:
 
-[Form with different errors layout DEMO](http://ajaxsubmit.heroku.com/subscriptions)
 
 ``` css
 .validation-block {
