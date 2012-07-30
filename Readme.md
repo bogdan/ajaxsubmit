@@ -112,7 +112,9 @@ Options:
 
 ### Errors assignment API
 
-`$(...).applyErrors(errors)` - assigns errors to the form.
+`$(...).applyErrors(errors)` - assigns errors to the form with cleanup old ones.
+
+`$(...).addErrors(errors)` - assigns errors to the form without cleanup old ones.
 
 `$(...).clearErrors(errors)` - clears form from errors.
 

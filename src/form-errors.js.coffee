@@ -30,10 +30,12 @@
       form.prepend(div)
     applyValidationMessage(div, message)
 
-
   $.fn.applyErrors = (errors) ->
-    form = $(@)
     $(@).clearErrors()
+    $(@).addErrors(errors)
+
+  $.fn.addErrors = (errors) ->
+    form = $(@)
     if $.type(errors) == "object"
       old_errors = errors
       errors = []

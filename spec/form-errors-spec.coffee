@@ -46,7 +46,6 @@ describe "form-errors", ->
 
   describe "after apply empty errors", ->
     beforeEach ->
-      console.log("test")
       $form.applyErrors(email: [])
 
     it "should not add activation class", ->
@@ -57,8 +56,17 @@ describe "form-errors", ->
       $form.applyErrors(email: ["is blank", "is invalid"])
 
     it "should pick first", ->
-      expect($form.find(".validation-message").html()).toEqual("is blank")
+      expect($form.find("[validate~=email] .validation-message").html()).toEqual("is blank")
 
+    describe "after add errors", ->
+      beforeEach ->
+        $form.addErrors(name: "is too short")
+
+      it "should add new error", ->
+        expect($form.find("[validate~=name] .validation-message").html()).toEqual("is too short")
+
+      it "should not remove old error", ->
+        expect($form.find("[validate~=email] .validation-message").html()).toEqual("is blank")
 
   describe "after apply errors as array", ->
     beforeEach ->
