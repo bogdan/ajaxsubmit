@@ -149,7 +149,10 @@ For example:
 ```
 
 Now ajaxsubmit will simply insert error inside `.validation-message` without applying it's default format.
+[Form with different errors layout DEMO](http://ajaxsubmit.heroku.com/subscriptions)
+
 Make sure you include something like this in your CSS, so that validation block doesn't appear when inactive:
+
 
 ``` css
 .validation-block {
@@ -171,6 +174,16 @@ In order to launch test suite in Google Chrome, you need to open it with:
 ``` sh
 chrome --allow-file-access-from-files spec.html
 ```
+## Thanks to
+
+Thanks to people that made a contribution to this library (even in case they don't know about that):
+
+* [Leonid Shevtsov](https://github.com/leonid-shevtsov)
+* [Andrey Krikunenko](https://github.com/scream3)
+* [Michael Klishin](https://github.com/michaelklishin)
+* [Victor Nazarenko](https://github.com/vnazarenko)
+* [Sergey Iurevich](https://github.com/iurevych)
+* [Alexander Chaplinskiy](https://github.com/alchapone)
 
 ## Self-Promotion
 
