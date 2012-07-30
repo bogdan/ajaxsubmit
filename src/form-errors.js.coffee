@@ -37,8 +37,9 @@
     if $.type(errors) == "object"
       old_errors = errors
       errors = []
-      $.each old_errors, (k,v) ->
-        errors.push [k,v]
+      $.each old_errors, (key, value) ->
+        if value && !($.isArray(value) && value.length == 0)
+          errors.push [key,value]
        
     $(errors).each (key, error) ->
       field = error[0]

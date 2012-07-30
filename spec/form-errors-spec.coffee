@@ -37,6 +37,20 @@ describe "form-errors", ->
       it "should clean validation message", ->
         expect($form.find(".validation-message").html()).toEqual("")
 
+  describe "after apply null errors", ->
+    beforeEach ->
+      $form.applyErrors(email: null)
+
+    it "should not add activation class", ->
+      expect($form.find("[validate~=email]")).not.toHaveClass($.errors.activationClass)
+
+  describe "after apply empty errors", ->
+    beforeEach ->
+      console.log("test")
+      $form.applyErrors(email: [])
+
+    it "should not add activation class", ->
+      expect($form.find("[validate~=email]")).not.toHaveClass($.errors.activationClass)
 
   describe "after apply errors with multiple errors", ->
     beforeEach ->
