@@ -64,6 +64,9 @@ $('#new_user').ajaxForm();
 
 In order to interact with ajaxsubmit your controller should return JSON structure that match the given convention.
 
+* If validation failed it should return JSON with `errors` key like: `{errors: {email: "Email is invalid"}}`
+* If validation passed you can handle the flow in javascript callback or path JSON with redirection URL like: {redirect: "/home"}
+
 
 Here is example with pseudocode:
 
