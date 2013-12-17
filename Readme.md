@@ -133,6 +133,14 @@ Configuration can be done via `$.errors` hash:
   * Default: `validation-message`.
   * NOTE: `$.errors.format` should always contain tag with `$.errors.messageClass`
 
+Example:
+
+``` js
+jQuery.errors.attribute="data-validate"
+jQuery.errors.format="<div class='validation-popup'><span class='message'></span><img src='/images/arrow.gif'/></div>"
+jQuery.errors.activationClass="active"
+jQuery.errors.messageClass="message"
+```
 
 ### Advanced customization: Different errors layout for different fields
 
