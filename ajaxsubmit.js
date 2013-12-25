@@ -12,7 +12,7 @@
     $.errors = {
       attribute: "validate",
       activationClass: "validation-active",
-      format: "<div class='validation-block'><div class='validation-message'></div></div>",
+      format: "<div class='validation-popup'><div class='validation-message'></div></div>",
       messageClass: "validation-message"
     };
     applyValidationMessage = function(div, message) {
@@ -103,7 +103,8 @@
         },
         error: function(xhr, status, str) {
           return ajaxFormErrorHandler($form);
-        }
+        },
+        dataType: 'json'
       });
     };
     ajaxFormSuccessHandler = function($form, data, callback, error_callback) {
