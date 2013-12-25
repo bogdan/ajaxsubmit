@@ -13,7 +13,7 @@ function spyOnUrl(mappings) {
             result = result.apply(self, [options]);
         }
 
-        if( options.dataType == 'json' ) {
+        if( options.dataType == 'json' && typeof(result) == "string") {
             result = JSON.parse(result);
         }
 

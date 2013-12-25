@@ -18,6 +18,7 @@
       type: options.type || method
       url: options.url || url
       data: data
+      dataType: "json"
       success: (data) ->
         ajaxFormSuccessHandler $form, data, callback, error_callback
       
