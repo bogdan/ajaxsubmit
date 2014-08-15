@@ -2,7 +2,7 @@
 
 This library is designed to submit and validate forms via Ajax
 
-[LIVE Demo available](http://ajaxsubmit.heroku.com)
+[LIVE Demo available](http://ajaxsubmit.herokuapp.com)
 
 Originally extracted from [Mailtrap Web Service](http://mailtrap.io)
 
@@ -162,7 +162,7 @@ For example:
 ```
 
 Now ajaxsubmit will simply insert error inside `.validation-message` without applying it's default format.
-[Form with different errors layout DEMO](http://ajaxsubmit.heroku.com/subscriptions)
+[Form with different errors layout DEMO](http://ajaxsubmit.herokuapp.com/subscriptions)
 
 Make sure you include something like this in your CSS, so that validation block doesn't appear when inactive:
 
