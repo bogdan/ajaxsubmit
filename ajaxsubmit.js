@@ -96,6 +96,7 @@
       }
       callback = options.success;
       error_callback = options.error;
+      http_error_callback = options.http_error;
       method = $form.attr("method") || "get";
       url = $form.attr("action");
       data = $form.serialize();
@@ -111,7 +112,7 @@
           return ajaxFormSuccessHandler($form, data, callback, error_callback);
         },
         error: function(xhr, status, str) {
-          return ajaxFormErrorHandler($form);
+          return ajaxFormErrorHandler($form, xhr, http_error_callback);
         }
       });
     };
@@ -129,7 +130,14 @@
         return $form.applyErrors(data.errors);
       }
     };
-    ajaxFormErrorHandler = function($form) {};
+    ajaxFormErrorHandler = function($form, xhr, http_error_callback) {
+      if (xhr.responseJSON.errors) {
+        return $form.applyErrors(xhr.responseJSON.errors);
+      }
+      if (typeof http_error_callback == "function"){
+        http_error_callback.call($form[0], xhr)
+      }
+    }
     return $.fn.ajaxForm = function(options) {
       if (options == null) {
         options = {};
