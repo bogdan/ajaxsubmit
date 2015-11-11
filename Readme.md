@@ -108,6 +108,7 @@ Options:
 * `success` - callback to be executed after form will be successfully submitted.
   * If not specified, user will be redirected by the redirect key received from backend after successful submit.
 * `error` - callback to be executed when the form was not submitted successfully
+* `httpError` - callback to be executed if server respond with http error status(if xhr object with error status will have correct error hash format plugin will also apply errors on the form in the same way and than run httpError callback)
 * `redirect` - specify the URL where the user should be redirected after form submit(makes sense only when `success` option is not used)
 * `url` - specify the url to submit a form. Defaults to url in `form[action]` attribute.
 * `data` - extra data to submit along with form data. Default: none
